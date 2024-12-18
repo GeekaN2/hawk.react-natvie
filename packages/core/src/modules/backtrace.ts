@@ -1,5 +1,4 @@
 import { BacktraceFrame, SourceCodeLine } from '@hawk.so/types';
-import fs from 'fs';
 import stackTrace, { StackFrame } from 'stack-trace';
 
 /**
@@ -104,12 +103,13 @@ export default class BacktraceHelper {
    * @returns {string[]}
    */
   private getSourceFileAsLines(filepath: string): string[] {
-    if (!fs.existsSync(filepath)) {
-      return [];
-    }
+    return [];
+    // if (!fs.existsSync(filepath)) {
+    //   return [];
+    // }
 
-    return fs.readFileSync(filepath, 'utf-8')
-      .split('\n');
+    // return fs.readFileSync(filepath, 'utf-8')
+    //   .split('\n');
   }
 
   /**

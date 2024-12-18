@@ -1,4 +1,4 @@
-import { HawkEvent, HawkNodeJSInitialSettings } from '../types';
+import type { HawkEvent, HawkNodeJSInitialSettings } from '../types/index';
 
 import {
   EventContext,
@@ -54,6 +54,7 @@ class Catcher {
         this.initGlobalHandlers();
       }
     } catch (error) {
+      console.log(error);
       throw new Error('Invalid integration token');
     }
   }
@@ -219,7 +220,7 @@ export default class HawkCatcher {
    *
    * @param settings - If settings is a string, it means an Integration Token
    */
-  public static init(settings: HawkNodeJSInitialSettings | string): void {
+  public init(settings: HawkNodeJSInitialSettings | string): void {
     _instance = new Catcher(settings);
   }
 
